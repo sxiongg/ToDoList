@@ -5,7 +5,7 @@
  */
 
 var app = require('../server');
-var debug = require('debug')('zoo-api:server');
+var debug = require('debug')('todolist-api:server');
 var http = require('http');
 
 /**
