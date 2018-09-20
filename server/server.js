@@ -18,6 +18,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
-app.use('/todo-list', toDoRouter);
+app.use(toDoRouter);
 
 module.exports = app;
