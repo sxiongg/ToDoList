@@ -11,37 +11,24 @@ class Input extends Component {
 
     handleInput(e) {
         this.setState({ input: e.target.value })
-        // console.log('asdfghlkfg')
     }
 
     handleClick(e) {
-        let axiosConfig = {
-            headers: {
-                'crossDomain': true,
-                'Content-Type': 'application/json',
-                "Access-Control-Allow-Origin": "*",
-            }
-          }
-
         let data = {
             text: this.state.input
         }
 
-        axios.post('http://localhost:1234/thehandiest/to-dos', data, axiosConfig)
+        axios.post('https://api.mlab.com/api/1/databases/todolist/collections/todos?apiKey=xI73xOlYWLZrgUWUao-CjKHEf9wLvVyA', data)
             .then((res) => {
-                // console.log(res.status)
-                console.log(res)
-            })
-
-        // axios.post('http://localhost:1234/thehandiest/to-dos')
-            
+                console.log(res.data)
+                this.props.updateList(res.data)
+            })     
     }
 
     render() {
         return (
             <div id='input-container'>
-                <form className='form-inline' onSubmit={this.handleClick.bind(this)}>
-                    <div className="form-group">
+                    <div className="form-group form-inline">
                         <input
                             id='input'
                             type='text'
@@ -49,9 +36,8 @@ class Input extends Component {
                             value={this.state.input}
                             onChange={this.handleInput.bind(this)}
                             style={{ width: '500px' }} />
-                        <button id='add-button' className='btn' type='submit'> Add </button>
+                        <button id='add-button' className='btn' type='submit' onClick={this.handleClick.bind(this)}> Add </button>
                     </div>
-                </form>
             </div>
         );
     }
