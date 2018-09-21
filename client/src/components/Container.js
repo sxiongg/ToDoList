@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Input from './TextField'
 
 class Container extends Component {
     constructor(props) {
@@ -7,7 +8,10 @@ class Container extends Component {
     }
     render() { 
         return ( 
-            <div>Hello World</div>
+            <div>
+                <h1>To Do List :)</h1>
+                <Input />
+            </div>   
          );
     }
 }
