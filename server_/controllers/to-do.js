@@ -18,6 +18,6 @@ exports.create = function (req, res) {
         if (err) {
             return next(err);
         }
-        res.send('To Do item Created successfully')
+        res.send('To Do item created successfully.')
     })
 };
