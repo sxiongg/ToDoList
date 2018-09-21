@@ -19,7 +19,7 @@ const List = (props) => {
                                     <span>{item.text}</span>
                                 </div>
                                 <div className='col-md-2'>
-                                    <span>???</span>
+                                    <span></span>
                                 </div>
                             </div>
                         )
