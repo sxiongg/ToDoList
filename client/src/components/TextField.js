@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AddButton from './AddButton'
+import axios from 'axios'
 
 class Input extends Component {
     constructor(props) {
@@ -14,10 +14,32 @@ class Input extends Component {
         // console.log('asdfghlkfg')
     }
 
+    handleClick(e) {
+        let axiosConfig = {
+            headers: {
+                'Content-Type': 'application/json',
+                "Access-Control-Allow-Origin": "*",
+            }
+          }
+
+        let data = {
+            text: this.state.input
+        }
+
+        axios.post('http://localhost:1234/thehandiest/to-dos', data, axiosConfig)
+            .then((res) => {
+                // console.log(res.status)
+                console.log(res)
+            })
+
+        // axios.post('http://localhost:1234/thehandiest/to-dos')
+            
+    }
+
     render() {
         return (
             <div id='input-container'>
-                <form className='form-inline'>
+                <form className='form-inline' onSubmit={this.handleClick.bind(this)}>
                     <div className="form-group">
                         <input
                             id='input'
