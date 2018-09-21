@@ -17,6 +17,7 @@ class Input extends Component {
     handleClick(e) {
         let axiosConfig = {
             headers: {
+                'crossDomain': true,
                 'Content-Type': 'application/json',
                 "Access-Control-Allow-Origin": "*",
             }

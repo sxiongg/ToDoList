@@ -5,8 +5,8 @@ const app = express();
 const toDo = require('./routes/to-do');
 
 const mongoose = require('mongoose');
-let dev_db_url = 'mongodb://sxiong:siaxiong1@ds111113.mlab.com:11113/todolist';
-let mongoDB = process.env.MONGODB_URI || dev_db_url;
+// let dev_db_url = 'mongodb://sxiong:siaxiong1@ds111113.mlab.com:11113/todolist';
+let mongoDB = process.env.MONGODB_URI
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;
 let db = mongoose.connection;
@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 app.use('/thehandiest', toDo);
 
-let port = 1234;
+let port = process.ENV.PORT || 3000;
 app.listen(port, () => {
-    console.log('Server is up and running on port number ' + port);
+    console.log(`Started up at port ${port}`);
 });

@@ -10,7 +10,7 @@ exports.create = function (req, res) {
     let toDo = new ToDo(
         {
             text: req.body.text,
-            // completed: req.body.price
+            // completed: req.body.completed
         }
     );
 
