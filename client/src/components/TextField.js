@@ -34,8 +34,7 @@ class Input extends Component {
                             type='text'
                             className='form-control'
                             value={this.state.input}
-                            onChange={this.handleInput.bind(this)}
-                            style={{ width: '500px' }} />
+                            onChange={this.handleInput.bind(this)} />
                         <button id='add-button' className='btn' type='submit' onClick={this.handleClick.bind(this)}> Add </button>
                     </div>
             </div>

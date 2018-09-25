@@ -2,13 +2,13 @@ import React from 'react';
 
 const List = (props) => {
     return ( 
-        <div id='list-container' className='col-md-6'>
+        <div id='list-container'>
                 <div className='row'>
                     <div className='col-md-10'>
                         <span>To Do Item</span>
                     </div>
                     <div className='col-md-2'>
-                        <span>Completed?</span>
+                        <span>Completed</span>
                     </div>
                 </div>
                 <div className='list-table'>
@@ -19,7 +19,14 @@ const List = (props) => {
                                     <span>{item.text}</span>
                                 </div>
                                 <div className='col-md-2'>
-                                    <span></span>
+                                    {item.completed 
+                                    ? <input type='checkbox' checked onChange={(e) => {
+                                        props.updateItem(item, { text: item.text, completed: false, details: '' })
+                                    }}/> 
+                                    : <input type='checkbox' onChange={(e) => {
+                                        props.updateItem(item, { text: item.text, completed: true, details: '' })
+                                    }}/>}
+                                    
                                 </div>
                             </div>
                         )
