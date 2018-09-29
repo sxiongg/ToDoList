@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { FaPlus } from 'react-icons/fa';
 
 class Input extends Component {
     constructor(props) {
@@ -35,7 +36,9 @@ class Input extends Component {
                             className='form-control'
                             value={this.state.input}
                             onChange={this.handleInput.bind(this)} />
-                        <button id='add-button' className='btn' type='submit' onClick={this.handleClick.bind(this)}> Add </button>
+                        <button id='add-button' className='btn' type='submit' onClick={this.handleClick.bind(this)}> 
+                            <FaPlus />
+                        </button>
                     </div>
             </div>
         );
