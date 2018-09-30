@@ -59,21 +59,17 @@ class List extends Component {
         
                                 <div className='col-md-3'>
                                     <ButtonGroup>
-                                        <Button>
-                                            <FaEdit 
-                                            onClick={(e) => this.editItem(item, index)} 
-                                            />
+                                        <Button onClick={(e) => this.editItem(item, index)}>
+                                            <FaEdit />
                                         </Button>
-                                        <Button>
-                                            <FaTimes
-                                            onClick={() => {
+                                        <Button onClick={() => {
                                                 axios.delete('https://api.mlab.com/api/1/databases/todolist/collections/todos/' + item._id.$oid + '?apiKey=xI73xOlYWLZrgUWUao-CjKHEf9wLvVyA')
                                                     .then((res) => {
                                                         console.log('deleted')
                                                         this.props.deleteItem(index)
                                                     })
-                                            }}
-                                            />
+                                            }}>
+                                            <FaTimes />
                                         </Button>
                                     </ButtonGroup>
                                     

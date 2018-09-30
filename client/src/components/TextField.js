@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { FaPlus } from 'react-icons/fa';
+import { Button } from 'react-bootstrap'
 
 class Input extends Component {
     constructor(props) {
@@ -46,14 +47,11 @@ class Input extends Component {
                             onChange={this.handleInput.bind(this)} 
                             style={{ width: '400px' }}
                         />
-                        <button 
+                        <Button 
                             id='add-button' 
-                            className='btn' 
-                            type='submit' 
                             onClick={this.handleClick.bind(this)}> 
-                            
                             <FaPlus />
-                        </button>
+                        </Button>
                     </div>
                     <textarea 
                         className='form-control' 
