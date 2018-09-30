@@ -19,8 +19,8 @@ class Container extends Component {
             })
     }
 
-    addToDo () {
-
+    addToDo (data) {
+        this.setState({ listData: [...this.state.listData, data] })
     }
 
     removeToDo (index) {
@@ -34,7 +34,7 @@ class Container extends Component {
         return ( 
             <div className='container'>
                 <h1>To Do List</h1>
-                <Input updateList={(data) => {this.setState({ listData: [...this.state.listData, data] })}} />
+                <Input updateList={(data) => this.addToDo(data)} />
                 <List listData={this.state.listData} deleteItem={(index) => this.removeToDo(index)} />
             </div>   
          );
