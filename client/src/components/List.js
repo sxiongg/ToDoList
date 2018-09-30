@@ -10,7 +10,7 @@ class List extends Component {
         }
     }
 
-    updateItem(item, index, data) {
+    updateCheckbox(item, index, data) {
         // console.log(item)
         axios({
             method: 'put',
@@ -28,6 +28,12 @@ class List extends Component {
             })
     }
 
+    editItem (item, index) {
+        this.setState({ 
+            
+        })
+    }
+
     render() {
         return (
             <div id='list-container'>
@@ -40,7 +46,7 @@ class List extends Component {
                                             type='checkbox'
                                             checked={item.completed}
                                             onChange={(e) => {
-                                                this.updateItem(item, index, { text: item.text, completed: item.completed ? false : true })
+                                                this.updateCheckbox(item, index, { text: item.text, completed: item.completed ? false : true })
                                             }}
                                         />
                                 </div>
@@ -52,7 +58,7 @@ class List extends Component {
         
                                 <div className='col-md-1'>
                                     <FaEdit 
-                                        onClick={(e) => console.log('dfjhfdj')} 
+                                        onClick={(e) => this.editItem(item, index)} 
                                     />
                                 </div>
                                 <div className='col-md-1'>

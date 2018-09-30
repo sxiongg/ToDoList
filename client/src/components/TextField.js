@@ -60,7 +60,7 @@ class Input extends Component {
                         value={this.state.details}
                         placeholder='Details...'
                         onChange={this.handleDetailsInput.bind(this)}
-                        style={{ width: '400px' }}
+                        style={{ width: '400px', height: '200px' }}
                     />
             </div>
         );
