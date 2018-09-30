@@ -22,7 +22,7 @@ class List extends Component {
         })
             .then(res => {
                 console.log(res)
-                console.log('asdjhdfljkhdsla')
+                // console.log('asdjhdfljkhdsla')
                 let { completed } = data
                 this.props.update(item, index, completed)
             })
@@ -46,23 +46,6 @@ class List extends Component {
                                                 this.updateItem(item, index, { text: item.text, completed: item.completed ? false : true })
                                             }}
                                         />
-                                    {/* {item.completed
-                                        ?
-                                        <input
-                                            type='checkbox'
-                                            checked
-                                            onChange={(e) => {
-                                                this.updateItem(item, { text: item.text, completed: false, details: '' })
-                                            }}
-                                        />
-                                        :
-                                        <input
-                                            type='checkbox'
-                                            onChange={(e) => {
-                                                this.updateItem(item, { text: item.text, completed: true, details: '' })
-                                            }}
-                                        />} */}
-
                                 </div>
                                 <div className='col-md-1'>
                                     <FaEdit 
