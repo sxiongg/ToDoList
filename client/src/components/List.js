@@ -35,9 +35,6 @@ class List extends Component {
                     {this.props.listData.map((item, index) => {
                         return (
                             <div className='row' key={index}>
-                                <div className='col-md-6'>
-                                    <span>{item.text}</span>
-                                </div>
                                 <div className='col-md-1'>
                                         <input
                                             type='checkbox'
@@ -47,6 +44,10 @@ class List extends Component {
                                             }}
                                         />
                                 </div>
+                                <div className='col-md-6'>
+                                    <span>{item.text}</span>
+                                </div>
+        
                                 <div className='col-md-1'>
                                     <FaEdit 
                                         onClick={(e) => console.log('dfjhfdj')} 
