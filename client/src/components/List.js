@@ -30,13 +30,13 @@ class List extends Component {
 
     editItem (item, index) {
         this.setState({ 
-            
+
         })
     }
 
     render() {
         return (
-            <div id='list-container'>
+            <div id='list-container' className='col-md-6'>
                 <div className='list-table'>
                     {this.props.listData.map((item, index) => {
                         return (

@@ -35,7 +35,7 @@ class Input extends Component {
 
     render() {
         return (
-            <div id='input-container'>
+            <div id='input-container' className='col-md-6'>
                     <div className="form-group form-inline">
                         <input
                             id='input'

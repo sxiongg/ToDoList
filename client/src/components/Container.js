@@ -43,6 +43,7 @@ class Container extends Component {
         return ( 
             <div className='container'>
                 <h1>To Do List</h1>
+                <div className='row'>
                 <Input 
                     updateList={(data) => this.addToDo(data)} />
                 <List 
@@ -50,6 +51,8 @@ class Container extends Component {
                     deleteItem={(index) => this.removeToDo(index)} 
                     update={(item, index, completed) => this.updateCheckbox(item, index, completed)}
                 />
+                </div>
+                
             </div>   
          );
     }
