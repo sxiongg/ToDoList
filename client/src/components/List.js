@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios'
 import { FaEdit, FaTimes } from 'react-icons/fa'
+import { ButtonGroup, Button } from 'react-bootstrap'
 
 class List extends Component {
     constructor(props) {
@@ -56,22 +57,30 @@ class List extends Component {
                                     
                                 </div>
         
-                                <div className='col-md-1'>
-                                    <FaEdit 
-                                        onClick={(e) => this.editItem(item, index)} 
-                                    />
+                                <div className='col-md-3'>
+                                    <ButtonGroup>
+                                        <Button>
+                                            <FaEdit 
+                                            onClick={(e) => this.editItem(item, index)} 
+                                            />
+                                        </Button>
+                                        <Button>
+                                            <FaTimes
+                                            onClick={() => {
+                                                axios.delete('https://api.mlab.com/api/1/databases/todolist/collections/todos/' + item._id.$oid + '?apiKey=xI73xOlYWLZrgUWUao-CjKHEf9wLvVyA')
+                                                    .then((res) => {
+                                                        console.log('deleted')
+                                                        this.props.deleteItem(index)
+                                                    })
+                                            }}
+                                            />
+                                        </Button>
+                                    </ButtonGroup>
+                                    
                                 </div>
-                                <div className='col-md-1'>
-                                    <FaTimes
-                                        onClick={() => {
-                                            axios.delete('https://api.mlab.com/api/1/databases/todolist/collections/todos/' + item._id.$oid + '?apiKey=xI73xOlYWLZrgUWUao-CjKHEf9wLvVyA')
-                                                .then((res) => {
-                                                    console.log('deleted')
-                                                    this.props.deleteItem(index)
-                                                })
-                                        }}
-                                    />
-                                </div>
+                                {/* <div className='col-md-1'>
+                                    
+                                </div> */}
                             </div>
                         )
                     })}
