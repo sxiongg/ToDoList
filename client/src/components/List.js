@@ -10,7 +10,7 @@ class List extends Component {
         }
     }
 
-    updateItem(item, data) {
+    updateItem(item, index, data) {
         // console.log(item)
         axios({
             method: 'put',
@@ -20,7 +20,12 @@ class List extends Component {
                 'Content-type': 'application/json'
             }
         })
-            .then(res => console.log(res))
+            .then(res => {
+                console.log(res)
+                console.log('asdjhdfljkhdsla')
+                let { completed } = data
+                this.props.update(item, index, completed)
+            })
     }
 
     render() {
@@ -34,7 +39,14 @@ class List extends Component {
                                     <span>{item.text}</span>
                                 </div>
                                 <div className='col-md-1'>
-                                    {item.completed
+                                        <input
+                                            type='checkbox'
+                                            checked={item.completed}
+                                            onChange={(e) => {
+                                                this.updateItem(item, index, { text: item.text, completed: item.completed ? false : true })
+                                            }}
+                                        />
+                                    {/* {item.completed
                                         ?
                                         <input
                                             type='checkbox'
@@ -49,7 +61,7 @@ class List extends Component {
                                             onChange={(e) => {
                                                 this.updateItem(item, { text: item.text, completed: true, details: '' })
                                             }}
-                                        />}
+                                        />} */}
 
                                 </div>
                                 <div className='col-md-1'>

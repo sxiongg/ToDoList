@@ -30,6 +30,15 @@ class Container extends Component {
        this.setState({ listData: newList })
     }
 
+    updateCheckbox (item, index, completed) {
+        let newList = this.state.listData
+        newList[index] = {
+            ...item,
+            completed: completed
+        }
+        this.setState({ listData: newList})
+    }
+ 
     render() { 
         return ( 
             <div className='container'>
@@ -39,6 +48,7 @@ class Container extends Component {
                 <List 
                     listData={this.state.listData} 
                     deleteItem={(index) => this.removeToDo(index)} 
+                    update={(item, index, completed) => this.updateCheckbox(item, index, completed)}
                 />
             </div>   
          );
