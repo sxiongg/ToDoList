@@ -45,7 +45,9 @@ class List extends Component {
                                         />
                                 </div>
                                 <div className='col-md-6'>
-                                    <span>{item.text}</span>
+                                    <p>{item.text}</p>
+                                    {item.details && <p>&mdash; {item.details}</p>}
+                                    
                                 </div>
         
                                 <div className='col-md-1'>
