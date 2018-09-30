@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import { FaBars, FaTimes } from 'react-icons/fa'
+import { FaEdit, FaTimes } from 'react-icons/fa'
 
 class List extends Component {
     constructor(props) {
         super(props);
-        this.state = { 
+        this.state = {
 
-         }
+        }
     }
 
-    updateItem (item, data) {
+    updateItem(item, data) {
         // console.log(item)
         axios({
             method: 'put',
@@ -20,11 +20,11 @@ class List extends Component {
                 'Content-type': 'application/json'
             }
         })
-        .then(res => console.log(res)) 
+            .then(res => console.log(res))
     }
 
-    render() { 
-        return ( 
+    render() {
+        return (
             <div id='list-container'>
                 <div className='list-table'>
                     {this.props.listData.map((item, index) => {
@@ -34,45 +34,47 @@ class List extends Component {
                                     <span>{item.text}</span>
                                 </div>
                                 <div className='col-md-1'>
-                                    {item.completed 
-                                    ? 
-                                    <input 
-                                        type='checkbox' 
-                                        checked 
-                                        onChange={(e) => {
-                                            this.updateItem(item, { text: item.text, completed: false, details: '' })
-                                        }}
-                                    /> 
-                                    : 
-                                    <input 
-                                        type='checkbox' 
-                                        onChange={(e) => {
-                                            this.updateItem(item, { text: item.text, completed: true, details: '' })
-                                        }}
-                                    />}
-                                    
+                                    {item.completed
+                                        ?
+                                        <input
+                                            type='checkbox'
+                                            checked
+                                            onChange={(e) => {
+                                                this.updateItem(item, { text: item.text, completed: false, details: '' })
+                                            }}
+                                        />
+                                        :
+                                        <input
+                                            type='checkbox'
+                                            onChange={(e) => {
+                                                this.updateItem(item, { text: item.text, completed: true, details: '' })
+                                            }}
+                                        />}
+
                                 </div>
                                 <div className='col-md-1'>
-                                    <FaBars onClick={(e) => console.log('dfjhfdj')}/>
+                                    <FaEdit 
+                                        onClick={(e) => console.log('dfjhfdj')} 
+                                    />
                                 </div>
                                 <div className='col-md-1'>
-                                    <FaTimes 
+                                    <FaTimes
                                         onClick={() => {
                                             axios.delete('https://api.mlab.com/api/1/databases/todolist/collections/todos/' + item._id.$oid + '?apiKey=xI73xOlYWLZrgUWUao-CjKHEf9wLvVyA')
                                                 .then((res) => {
                                                     console.log('deleted')
                                                     this.props.deleteItem(index)
                                                 })
-                                        }} 
-                                        />
+                                        }}
+                                    />
                                 </div>
                             </div>
                         )
                     })}
                 </div>
             </div>
-         );
+        );
     }
 }
- 
+
 export default List;

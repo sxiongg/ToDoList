@@ -23,6 +23,7 @@ class Input extends Component {
             .then((res) => {
                 console.log(res.data)
                 this.props.updateList(res.data)
+                this.setState({ input: '' })
             })     
     }
 
@@ -35,8 +36,14 @@ class Input extends Component {
                             type='text'
                             className='form-control'
                             value={this.state.input}
-                            onChange={this.handleInput.bind(this)} />
-                        <button id='add-button' className='btn' type='submit' onClick={this.handleClick.bind(this)}> 
+                            onChange={this.handleInput.bind(this)} 
+                        />
+                        <button 
+                            id='add-button' 
+                            className='btn' 
+                            type='submit' 
+                            onClick={this.handleClick.bind(this)}> 
+                            
                             <FaPlus />
                         </button>
                     </div>

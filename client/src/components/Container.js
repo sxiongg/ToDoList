@@ -34,8 +34,12 @@ class Container extends Component {
         return ( 
             <div className='container'>
                 <h1>To Do List</h1>
-                <Input updateList={(data) => this.addToDo(data)} />
-                <List listData={this.state.listData} deleteItem={(index) => this.removeToDo(index)} />
+                <Input 
+                    updateList={(data) => this.addToDo(data)} />
+                <List 
+                    listData={this.state.listData} 
+                    deleteItem={(index) => this.removeToDo(index)} 
+                />
             </div>   
          );
     }
