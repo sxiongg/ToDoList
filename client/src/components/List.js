@@ -57,7 +57,7 @@ class List extends Component {
                                     
                                 </div>
         
-                                <div className='col-md-3'>
+                                <div className='pull-right'>
                                     <ButtonGroup>
                                         <Button onClick={(e) => this.editItem(item, index)}>
                                             <FaEdit />
@@ -74,9 +74,6 @@ class List extends Component {
                                     </ButtonGroup>
                                     
                                 </div>
-                                {/* <div className='col-md-1'>
-                                    
-                                </div> */}
                             </div>
                         )
                     })}
