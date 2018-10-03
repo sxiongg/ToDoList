@@ -9,6 +9,7 @@ const rootReducer = (state = initialState, action) => {
                 ...state,
                 toDoItem: action.payload
             }
+            console.log(state.toDoItem)
         default: 
             return state
     }
