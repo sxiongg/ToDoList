@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { connect } from 'react-redux'
 import { FaEdit, FaTimes } from 'react-icons/fa'
 import { ButtonGroup, Button } from 'react-bootstrap'
+import { setFormData } from '../redux/actions';
+import { withRouter } from 'react-router-dom'
 
 class List extends Component {
     constructor(props) {
@@ -29,12 +32,6 @@ class List extends Component {
             })
     }
 
-    editItem (item, index) {
-        this.setState({ 
-
-        })
-    }
-
     render() {
         return (
             <div id='list-container' className='col-md-6'>
@@ -59,7 +56,11 @@ class List extends Component {
         
                                 <div className='pull-right'>
                                     <ButtonGroup>
-                                        <Button onClick={(e) => this.editItem(item, index)}>
+                                        <Button onClick={(e) => {
+                                            console.log(item)
+                                            this.props.sendItemToRedux(item, index)
+                                            this.props.history.push('/edit-to-do')
+                                        }}>
                                             <FaEdit />
                                         </Button>
                                         <Button onClick={() => {
@@ -83,4 +84,10 @@ class List extends Component {
     }
 }
 
-export default List;
+const mapDispatchToProps = dispatch => {
+    return {
+        sendItemToRedux: (item, index) => dispatch(setFormData(item, index)) 
+    }
+}
+
+export default withRouter(connect(null, mapDispatchToProps)(List));
