@@ -2,24 +2,21 @@ import React, { Component } from 'react';
 import ListContainer from './List-Container'
 import Details from './Details'
 import { Switch, Route } from 'react-router-dom'
+import { PageHeader } from 'react-bootstrap'
 
-class Container extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {}
-    }
+const Container = () => {
  
-    render() { 
+    // render() { 
         return ( 
             <div className='container'>
-                <h1>To Do List</h1>
+                <PageHeader>To Do List <small>ReactJS, Node.js</small></PageHeader>
                 <Switch>
                     <Route exact path='/' component={ListContainer} />
                     <Route path='/edit-to-do' component={Details} />
                 </Switch>
             </div>   
          );
-    }
+    // }
 }
  
 export default Container;

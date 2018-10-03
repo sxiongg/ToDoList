@@ -23,11 +23,13 @@ class Input extends Component {
     handleClick(e) {
         let data = {
             text: this.state.input,
-            details: this.state.details
+            details: this.state.details,
+            completed: false
         }
 
         axios.post('https://api.mlab.com/api/1/databases/todolist/collections/todos?apiKey=xI73xOlYWLZrgUWUao-CjKHEf9wLvVyA', data)
             .then((res) => {
+                console.log('Successfully added a new to do item.')
                 console.log(res.data)
                 this.props.updateList(res.data)
                 this.setState({ input: '', details: '' })
@@ -37,29 +39,26 @@ class Input extends Component {
     render() {
         return (
             <div id='input-container' className='col-md-6'>
-                    <div className="form-group form-inline">
+                    <div className="form-group">
                         <input
-                            id='input'
                             type='text'
-                            className='form-control'
                             value={this.state.input}
                             placeholder='To Do...'
                             onChange={this.handleInput.bind(this)} 
+                            className='form-control'
                             style={{ width: '400px' }}
                         />
-                        <Button 
-                            id='add-button' 
-                            onClick={this.handleClick.bind(this)}> 
+                        <textarea 
+                            value={this.state.details}
+                            placeholder='Details...'
+                            onChange={this.handleDetailsInput.bind(this)}
+                            className='form-control' 
+                            style={{ width: '400px', height: '100px', marginTop: '5px' }}
+                        />
+                        <Button onClick={this.handleClick.bind(this)} className='btn-primary btn-block' style={{ width: '400px', marginTop: '5px'}}> 
                             <FaPlus />
                         </Button>
                     </div>
-                    <textarea 
-                        className='form-control' 
-                        value={this.state.details}
-                        placeholder='Details...'
-                        onChange={this.handleDetailsInput.bind(this)}
-                        style={{ width: '400px', height: '200px' }}
-                    />
             </div>
         );
     }
