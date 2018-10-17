@@ -1,6 +1,6 @@
 # ToDoList
 React, Redux, Axios
 
-#Installation
+# Installation
 
 `npm install && npm start`
